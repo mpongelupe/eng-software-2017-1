@@ -1,0 +1,136 @@
+{
+    "perguntas": [
+        {
+            "dificuldade": 0,
+            "pergunta": "Das alternativas abaixo qual melhor descreve o significado de requisito no contexto da engenharia de software?",
+            "respostas": [
+                {
+                    "resposta": "Característica que define os critérios de aceitação de um software.",
+                    "certa": true
+                },
+                {
+                    "resposta": "Função essencial para o correto funcionamento de um software.",
+                    "certa": false
+                },
+                {
+                    "resposta": "Componente de hardware necessário para executar um software.",
+                    "certa": false
+                },
+                {
+                    "resposta": "Função adicional de um software.",
+                    "certa": false
+                }
+            ]
+        },
+        {
+            "dificuldade": 0,
+            "pergunta": "Qual das alternativas abaixo não compreende o controle de projetos?",
+            "respostas": [
+                {
+                    "resposta": "Teste das versões implementadas do software.",
+                    "certa": true
+                },
+                {
+                    "resposta": "A busca de alternativas para contornar problemas descobertos durante a execução.",
+                    "certa": false
+                },
+                {
+                    "resposta": "Renegociação dos compromissos assumidos.",
+                    "certa": false
+                },
+                {  
+                    "resposta": "Replanejamento dos projetos dentro de um grau razoável de variação.",
+                    "certa": false
+                }
+            ]
+        },
+        {
+            "dificuldade": 1,
+            "pergunta": "Quais são os principais fatores determinantes na produção de um software?",
+            "respostas": [
+                {
+                    "resposta": "Processos, pessoas e tecnologia.",
+                    "certa": true
+                },
+                {
+                    "resposta": "Processos, projeto e tecnologia.",
+                    "certa": false
+                },
+                {
+                    "resposta": "Processos, pessoas e projeto.",
+                    "certa": false
+                },
+                {  
+                    "resposta": "Projeto, pessoas e tecnologia.",
+                    "certa": false
+                }
+            ]
+        },
+        {
+            "dificuldade": 1,
+            "pergunta": "As afirmativas abaixo são sobre as funções de um diretor, exceto:",
+            "respostas": [
+                {
+                    "resposta": "É o profissional responsável por toda manutenção do mecanismo que garante o andamento correto das funções de apoio administrativo.",
+                    "certa": true
+                },
+                {
+                    "resposta": "Dirigente do mais alto nível da organização.",
+                    "certa": false
+                },
+                {
+                    "resposta": "Focaliza vitalidade de longo prazo da organização.",
+                    "certa": false
+                },
+                {  
+                    "resposta": "Não tem compromissos e preocupações de curto prazo.",
+                    "certa": false
+                }
+            ]
+        },
+        {
+            "dificuldade": 2,
+            "pergunta": "Considerando o conceito de qualidade, qual das alternativas abaixo apresenta o maior retorno de investimento em capacitação?",
+            "respostas": [
+                {
+                    "resposta": "Mudanças no processo de desenvolvimento.",
+                    "certa": true
+                },
+                {
+                    "resposta": "Capacitação de mão de obra.",
+                    "certa": false
+                },
+                {
+                    "resposta": "Recrutamento de mão de obra qualificada.",
+                    "certa": false
+                },
+                {  
+                    "resposta": "Investimento em tecnologia.",
+                    "certa": false
+                }
+            ]
+        },
+        {
+            "dificuldade": 2,
+            "pergunta": "Considerando o processo Praxis, qual das alternativas abaixo apresenta a nomenclatura adequada para um “Passo”?",
+            "respostas": [
+                {
+                    "resposta": "Divisão formal do processo. Possui pré-requisitos, entradas, critérios de aprovação e resultados.",
+                    "certa": true
+                },
+                {
+                    "resposta": "Etapa de uma fase na qual se atinge objetivos definidos de um projeto.",
+                    "certa": false
+                },
+                {
+                    "resposta": "Divisão grande utilizada para fins gerenciais. Demarcada por pontos de aceitação do cliente.",
+                    "certa": false
+                },
+                {  
+                    "resposta": "“Receita de bolo” de como realizar uma iteração.",
+                    "certa": false
+                }
+            ]
+        }
+    ]
+}
