@@ -1,2 +1,0 @@
-<?xml version="1.0" encoding="utf-8"?>
-<merger version="3"><dataSet config="main"><source path="/home/mateus/Documents/EngSoftware/cordova_app/eng-software-2017-1/CordovaLib/assets"/><source path="/home/mateus/Documents/EngSoftware/cordova_app/eng-software-2017-1/CordovaLib/build/generated/assets/shaders/debug"/></dataSet><dataSet config="debug"><source path="/home/mateus/Documents/EngSoftware/cordova_app/eng-software-2017-1/CordovaLib/src/debug/assets"/></dataSet></merger>
