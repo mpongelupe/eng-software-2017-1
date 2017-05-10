@@ -9,19 +9,21 @@ class Main extends Phaser.State {
 
 	create() {
 		this.game.stage.backgroundColor = '#cecece';
+    this.timer = this.game.time.create(true);
     this.getQuestions();
     this.currentIndex = 0;
     this.screenElements = []; // so that they can be removed when changing questions
     this.showCurrentQuestion();
+    this.setTimer();
 	}
 
 	update() {
-
+    this.updateTimerText();
 	}
 
   // create boxes and texts
   showCurrentQuestion () {
-    
+
     // clear screen from previous answer texts
     this.emptyScreen();
 
@@ -31,13 +33,12 @@ class Main extends Phaser.State {
     var answerPadding = 50;
     var questionStyle = {
       font: "56px Arial", fill: '#ffffff', backgroundColor: 'rgba(0,255,0,0.25)',
-      align: 'left', wordWrap: true, wordWrapWidth: 1000      
+      align: 'left', wordWrap: true, wordWrapWidth: 1000
     }
     var answerStyle = {
       font: "56px Arial", fill: '#ffffff', backgroundColor: 'rgba(0,255,0,0.25)',
-      align: 'left', wordWrap: true, wordWrapWidth: 1000       
+      align: 'left', wordWrap: true, wordWrapWidth: 1000
     }
-
     // question object
     var question = this.questions[this.currentIndex];
 
@@ -52,7 +53,7 @@ class Main extends Phaser.State {
       var obj = question.respostas[i];
       var answerText = this.game.add.text(x, answerY, obj.resposta,  answerStyle);
       var callback = obj.certa ? this.correctAnswer : this.wrongAnswer;
-      answerText.inputEnabled = true; 
+      answerText.inputEnabled = true;
       answerText.events.onInputDown.add(callback, this);
       this.screenElements.push(answerText);
 
@@ -98,12 +99,19 @@ class Main extends Phaser.State {
     this.game.state.start("GameOver");
   }
 
+  timeOverAnswer () {
+    alert('O seu tempo acabou... :(');
+    this.game.state.start("GameOver");
+  }
+
   showNextQuestion () {
     this.currentIndex++;
+    this.timer.destroy();
     if (this.currentIndex >= this.questions.length) {
       this.game.state.start("GameOver");
     } else {
       this.showCurrentQuestion();
+      this.setTimer();
     }
   }
 
@@ -116,6 +124,31 @@ class Main extends Phaser.State {
     });
   }
 
+  setTimer () {
+    const TIMER_COUNTER = 20;
+    this.timer.loop(Phaser.Timer.SECOND * TIMER_COUNTER, this.timeOverAnswer, this);
+    this.timer.start();
+
+    var x = 450;
+    var timerY = 1350;
+    var timerStyle = {
+      font: "96px Arial", fill: '#ffffff', backgroundColor: 'rgba(0,255,0,0.25)',
+      align: 'centered', wordWrap: true, wordWrapWidth: 1000
+    }
+
+    var count = Math.round(this.timer.duration / 1000);
+    count = (count < 10) ? ("0" + count) : count;
+
+    this.timerText = this.game.add.text(x, timerY, count,  timerStyle);
+    this.screenElements.push(this.timerText);
+
+  }
+
+  updateTimerText() {
+    var count = Math.round(this.timer.duration / 1000);
+    count = (count < 10) ? ("0" + count) : count;
+    this.timerText.setText(count);
+  }
 }
 
 export default Main;
