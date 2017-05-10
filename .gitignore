@@ -44,3 +44,5 @@ target
 **.*.releaseBackup
 
 node_modules
+
+build/*
