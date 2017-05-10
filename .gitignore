@@ -42,3 +42,5 @@ target
 # Maven Release Plugin
 **/release.properties
 **.*.releaseBackup
+
+node_modules
