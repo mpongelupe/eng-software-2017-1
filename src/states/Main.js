@@ -8,7 +8,7 @@ class Main extends Phaser.State {
   }
 
 	create() {
-		this.game.stage.backgroundColor = '#cecece';
+		this.game.stage.backgroundColor = '#03A9F4';
     this.timer = this.game.time.create(true);
     this.getQuestions();
     this.currentIndex = 0;
@@ -32,11 +32,11 @@ class Main extends Phaser.State {
     var answerY = 400;
     var answerPadding = 50;
     var questionStyle = {
-      font: "56px Arial", fill: '#ffffff', backgroundColor: 'rgba(0,255,0,0.25)',
+      font: "56px Arial", fill: '#ffffff', backgroundColor: '#0288D1',
       align: 'left', wordWrap: true, wordWrapWidth: 1000
     }
     var answerStyle = {
-      font: "56px Arial", fill: '#ffffff', backgroundColor: 'rgba(0,255,0,0.25)',
+      font: "56px Arial", fill: '#000', backgroundColor: '#B3E5FC',
       align: 'left', wordWrap: true, wordWrapWidth: 1000
     }
     // question object
@@ -125,15 +125,15 @@ class Main extends Phaser.State {
   }
 
   setTimer () {
-    const TIMER_COUNTER = 20;
+    const TIMER_COUNTER = 30;
     this.timer.loop(Phaser.Timer.SECOND * TIMER_COUNTER, this.timeOverAnswer, this);
     this.timer.start();
 
-    var x = 450;
+    var x = this.game.world.centerX - 52;
     var timerY = 1350;
     var timerStyle = {
-      font: "96px Arial", fill: '#ffffff', backgroundColor: 'rgba(0,255,0,0.25)',
-      align: 'centered', wordWrap: true, wordWrapWidth: 1000
+      font: "96px Arial", fill: '#212121', fontWeight: 'bold',
+      backgroundColor: '#FFC107', align: 'centered', wordWrap: true, wordWrapWidth: 1000
     }
 
     var count = Math.round(this.timer.duration / 1000);
