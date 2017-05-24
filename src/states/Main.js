@@ -28,22 +28,31 @@ class Main extends Phaser.State {
     this.emptyScreen();
 
     var x = 20;
-    var questionY = 40;
-    var answerY = 400;
+    var questionY = 100;
+    var answerY = 600;
     var answerPadding = 50;
     var questionStyle = {
-      font: "56px Arial", fill: '#ffffff', backgroundColor: '#0288D1',
-      align: 'left', wordWrap: true, wordWrapWidth: 1000
+      font: "56px Arial", fill: '#ffffff',
+      align: 'center', boundsAlignH: 'center', boundsAlignV: "middle",
+      wordWrap: true, wordWrapWidth: 1000
     }
     var answerStyle = {
-      font: "40px Arial", fill: '#000', align: 'center', wordWrap: true
+      font: "40px Arial", fill: '#000', align: 'center', wordWrap: true,
+      boundsAlignH: 'center', boundsAlignV: "middle"
     }
     // question object
     var question = this.questions[this.currentIndex];
 
+    var bar = this.game.add.graphics();
+    bar.beginFill(0x000000, 0.2);
+    bar.drawRect(0, questionY, this.game.world.width, 300);
+
     // question text
-    var questionText = this.game.add.text(x, questionY, question.pergunta,  questionStyle);
+    var questionText = this.game.add.text(0, 0, question.pergunta,  questionStyle);
+    questionText.setTextBounds(0, questionY, this.game.world.width, 300);
     this.screenElements.push(questionText);
+
+    this.screenElements.push(bar);
 
     this.shuffleAnswers(question.respostas);
 
@@ -54,39 +63,25 @@ class Main extends Phaser.State {
       var answerButton = this.game.add.sprite(this.game.world.centerX, answerY, 'button');
       answerButton.anchor.set(0.5);
 
-      var answerText = this.game.add.text(0, answerY, obj.resposta,  answerStyle);
-      answerText.wordWrapWidth = answerButton.width - 20;
+      var answerText = this.game.add.text(0, 0, obj.resposta,  answerStyle);
+      answerText.wordWrapWidth = answerButton.width;
       answerText.anchor.set(0.5);
 
       var answerHeight = answerButton.height;
       // test if the height of the text is too close to the button Default height
       if(answerText.height > answerHeight - 20) {
         // adjusts the button positioning according to the button height
-        answerButton.height = answerText.height + 20;
-        answerButton.y = answerY + 0.5*(answerButton.height - answerHeight);
-
-        answerText.setTextBounds( undefined, undefined, answerButton.width-20, answerButton.height);
-        answerText.alignTo(answerButton, Phaser.MIDDLE_CENTER);
-
-        answerText.y = answerY + 0.5*(answerButton.height - answerHeight);
-
-      } else {
-
-        answerText.setTextBounds( undefined, undefined, answerButton.width-20, answerButton.height);
-        answerText.alignTo(answerButton, Phaser.MIDDLE_CENTER);
-
-        answerText.y = answerY;
+         answerButton.height = answerText.height + 20;
+         answerButton.y = answerY + 0.5*(answerButton.height - answerHeight);
       }
 
-      answerText.x = answerText.x + 20;
-      answerText.useAdvancedWrap = true;
+      answerText.setScaleMinMax(1,1,1,1);
+      answerButton.addChild(answerText);
 
       var callback = obj.certa ? this.correctAnswer : this.wrongAnswer;
 
-      answerText.inputEnabled = true;
       answerButton.inputEnabled = true;
 
-      answerText.events.onInputDown.add(callback, this);
       answerButton.events.onInputDown.add(callback, this);
 
       this.screenElements.push(answerText);
@@ -163,10 +158,10 @@ class Main extends Phaser.State {
     this.timer.loop(Phaser.Timer.SECOND * TIMER_COUNTER, this.timeOverAnswer, this);
     this.timer.start();
 
-    var x = this.game.world.centerX - 52;
-    var timerY = 1350;
+    var x = this.game.world.centerX;
+    var timerY = 1450;
     var timerStyle = {
-      font: "96px Arial", fill: '#212121', fontWeight: 'bold',
+      font: "68px Arial", fill: '#212121', fontWeight: 'bold',
       backgroundColor: '#FFC107', align: 'centered', wordWrap: true, wordWrapWidth: 1000
     }
 
@@ -174,6 +169,7 @@ class Main extends Phaser.State {
     count = (count < 10) ? ("0" + count) : count;
 
     this.timerText = this.game.add.text(x, timerY, count,  timerStyle);
+    this.timerText.anchor.set(0.5);
     this.screenElements.push(this.timerText);
 
   }
