@@ -36,8 +36,7 @@ class Main extends Phaser.State {
       align: 'left', wordWrap: true, wordWrapWidth: 1000
     }
     var answerStyle = {
-      font: "56px Arial", fill: '#000', backgroundColor: '#B3E5FC',
-      align: 'left', wordWrap: true, wordWrapWidth: 1000
+      font: "40px Arial", fill: '#000', align: 'center', wordWrap: true
     }
     // question object
     var question = this.questions[this.currentIndex];
@@ -51,14 +50,49 @@ class Main extends Phaser.State {
     // print alternatives on screen
     for (var i in question.respostas) {
       var obj = question.respostas[i];
-      var answerText = this.game.add.text(x, answerY, obj.resposta,  answerStyle);
-      var callback = obj.certa ? this.correctAnswer : this.wrongAnswer;
-      answerText.inputEnabled = true;
-      answerText.events.onInputDown.add(callback, this);
-      this.screenElements.push(answerText);
+      //Creates button sprites
+      var answerButton = this.game.add.sprite(this.game.world.centerX, answerY, 'button');
+      answerButton.anchor.set(0.5);
 
-      // adjust height of next alternative
-      answerY += answerPadding + answerText.height;
+      var answerText = this.game.add.text(0, answerY, obj.resposta,  answerStyle);
+      answerText.wordWrapWidth = answerButton.width - 20;
+      answerText.anchor.set(0.5);
+
+      var answerHeight = answerButton.height;
+      // test if the height of the text is too close to the button Default height
+      if(answerText.height > answerHeight - 20) {
+        // adjusts the button positioning according to the button height
+        answerButton.height = answerText.height + 20;
+        answerButton.y = answerY + 0.5*(answerButton.height - answerHeight);
+
+        answerText.setTextBounds( undefined, undefined, answerButton.width-20, answerButton.height);
+        answerText.alignTo(answerButton, Phaser.MIDDLE_CENTER);
+
+        answerText.y = answerY + 0.5*(answerButton.height - answerHeight);
+
+      } else {
+
+        answerText.setTextBounds( undefined, undefined, answerButton.width-20, answerButton.height);
+        answerText.alignTo(answerButton, Phaser.MIDDLE_CENTER);
+
+        answerText.y = answerY;
+      }
+
+      answerText.x = answerText.x + 20;
+      answerText.useAdvancedWrap = true;
+
+      var callback = obj.certa ? this.correctAnswer : this.wrongAnswer;
+
+      answerText.inputEnabled = true;
+      answerButton.inputEnabled = true;
+
+      answerText.events.onInputDown.add(callback, this);
+      answerButton.events.onInputDown.add(callback, this);
+
+      this.screenElements.push(answerText);
+      this.screenElements.push(answerButton);
+
+      answerY += answerPadding + answerButton.height;
     }
   }
 
@@ -125,7 +159,7 @@ class Main extends Phaser.State {
   }
 
   setTimer () {
-    const TIMER_COUNTER = 30;
+    const TIMER_COUNTER = 50;
     this.timer.loop(Phaser.Timer.SECOND * TIMER_COUNTER, this.timeOverAnswer, this);
     this.timer.start();
 
