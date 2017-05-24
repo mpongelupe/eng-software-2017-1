@@ -47,6 +47,18 @@ class Main extends Phaser.State {
     bar.beginFill(0x000000, 0.2);
     bar.drawRect(0, questionY, this.game.world.width, 300);
 
+    var progressCounterStyle = {
+      font: "44px Arial", fill: '#000', align: 'right', wordWrap: true,
+      boundsAlignH: 'right', boundsAlignV: "middle", fontWeight: "bold"
+    }
+
+    var progressText = this.game.add.text(0, 0, this.currentIndex + 1 +"/"+this.questions.length, progressCounterStyle);
+    progressText.setTextBounds(0, 0, this.game.world.width-20, questionY);
+
+    var tween = this.game.add.tween(progressText);
+    tween.to({ fontSize: 56 }, 200, 'Linear', true, 0, 0, true);
+    this.screenElements.push(progressText);
+
     // question text
     var questionText = this.game.add.text(0, 0, question.pergunta,  questionStyle);
     questionText.setTextBounds(0, questionY, this.game.world.width, 300);
@@ -157,6 +169,7 @@ class Main extends Phaser.State {
     const TIMER_COUNTER = 50;
     this.timer.loop(Phaser.Timer.SECOND * TIMER_COUNTER, this.timeOverAnswer, this);
     this.timer.start();
+    this.timerCount = TIMER_COUNTER;
 
     var x = this.game.world.centerX;
     var timerY = 1450;
@@ -172,12 +185,18 @@ class Main extends Phaser.State {
     this.timerText.anchor.set(0.5);
     this.screenElements.push(this.timerText);
 
+    this.tweenTimer = this.game.add.tween(this.timerText);
+    this.tweenTimer.to({ fontSize: 78 }, 500, 'Linear', true, 0, 0, true);
+    this.tweenTimer.loop(1000);
   }
 
   updateTimerText() {
     var count = Math.round(this.timer.duration / 1000);
     count = (count < 10) ? ("0" + count) : count;
-    this.timerText.setText(count);
+    if(this.timerCount != count) {
+        this.timerCount = count;
+        this.timerText.setText(this.timerCount);
+    }
   }
 }
 
