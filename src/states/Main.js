@@ -56,7 +56,7 @@ class Main extends Phaser.State {
     progressText.setTextBounds(0, 0, this.game.world.width-20, questionY);
 
     var tween = this.game.add.tween(progressText);
-    tween.to({ fontSize: 56 }, 200, 'Linear', true, 0, 0, true);
+    tween.to({ fontSize: 56 }, 400, 'Linear', true, 0, 0, true);
     this.screenElements.push(progressText);
 
     // question text
@@ -131,8 +131,22 @@ class Main extends Phaser.State {
   }
 
   correctAnswer () {
-    alert('Resposta correta! :D');
-    this.showNextQuestion();
+    this.emptyScreen();
+
+    this.logo = this.game.add.sprite(this.game.world.centerX, this.game.world.centerY - 200, 'logo');
+	  this.logo.anchor.setTo(0.5);
+
+    var counterStyle = {
+      font: "96px Arial", fill: '#212121', fontWeight: 'bold',
+      backgroundColor: '#FFC107', align: 'centered', wordWrap: true, wordWrapWidth: 1000
+    }
+
+    this.questionCounterText = this.game.add.text(this.game.world.centerX, this.game.world.centerY+200, this.currentIndex+1 + "/" + this.questions.length,  counterStyle);
+    this.questionCounterText.anchor.set(0.5);
+    this.questionCounterText.inputEnabled = true;
+    this.questionCounterText.events.onInputDown.add(this.showNextQuestion, this);
+    this.screenElements.push(this.questionCounterText);
+    this.screenElements.push(this.logo);
   }
 
   wrongAnswer () {
@@ -174,8 +188,7 @@ class Main extends Phaser.State {
     var x = this.game.world.centerX;
     var timerY = 1450;
     var timerStyle = {
-      font: "68px Arial", fill: '#212121', fontWeight: 'bold',
-      backgroundColor: '#FFC107', align: 'centered', wordWrap: true, wordWrapWidth: 1000
+      font: "68px Arial", fill: '#212121', fontWeight: 'bold', align: 'centered', wordWrap: true, wordWrapWidth: 1000
     }
 
     var count = Math.round(this.timer.duration / 1000);
@@ -183,10 +196,16 @@ class Main extends Phaser.State {
 
     this.timerText = this.game.add.text(x, timerY, count,  timerStyle);
     this.timerText.anchor.set(0.5);
+
+    this.timerCircle = this.game.add.graphics();
+    this.timerCircle.beginFill(0xFFC107);
+    this.timerCircle.drawCircle(this.game.world.centerX, timerY, 100);
+    this.timerCircle.addChild(this.timerText);
     this.screenElements.push(this.timerText);
+    this.screenElements.push(this.timerCircle);
 
     this.tweenTimer = this.game.add.tween(this.timerText);
-    this.tweenTimer.to({ fontSize: 78 }, 500, 'Linear', true, 0, 0, true);
+    this.tweenTimer.to({ fontSize: 80 }, 500, "Linear", true, 0, 0, true);
     this.tweenTimer.loop(1000);
   }
 
