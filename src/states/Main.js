@@ -5,6 +5,9 @@ class Main extends Phaser.State {
 
   constructor () {
     super();
+
+    (this.rankedMode) = true; this.rankedModeText = null;
+    this.timerCircle = null;
   }
 
 	create() {
@@ -35,11 +38,11 @@ class Main extends Phaser.State {
       font: "56px Arial", fill: '#ffffff',
       align: 'center', boundsAlignH: 'center', boundsAlignV: "middle",
       wordWrap: true, wordWrapWidth: 1000
-    }
+    };
     var answerStyle = {
       font: "40px Arial", fill: '#000', align: 'center', wordWrap: true,
       boundsAlignH: 'center', boundsAlignV: "middle"
-    }
+    };
     // question object
     var question = this.questions[this.currentIndex];
 
@@ -50,7 +53,7 @@ class Main extends Phaser.State {
     var progressCounterStyle = {
       font: "44px Arial", fill: '#000', align: 'right', wordWrap: true,
       boundsAlignH: 'right', boundsAlignV: "middle", fontWeight: "bold"
-    }
+    };
 
     var progressText = this.game.add.text(0, 0, this.currentIndex + 1 +"/"+this.questions.length, progressCounterStyle);
     progressText.setTextBounds(0, 0, this.game.world.width-20, questionY);
@@ -139,7 +142,7 @@ class Main extends Phaser.State {
     var counterStyle = {
       font: "96px Arial", fill: '#212121', fontWeight: 'bold',
       backgroundColor: '#FFC107', align: 'centered', wordWrap: true, wordWrapWidth: 1000
-    }
+    };
 
     this.questionCounterText = this.game.add.text(this.game.world.centerX, this.game.world.centerY+200, this.currentIndex+1 + "/" + this.questions.length,  counterStyle);
     this.questionCounterText.anchor.set(0.5);
@@ -179,17 +182,34 @@ class Main extends Phaser.State {
     });
   }
 
+  drawTimerRank() {
+    if (this.rankedModeText !== null) {
+      this.rankedModeText.destroy();
+      this.rankedModeText = null;
+    }
+    var x = this.game.world.centerX;
+    var timerY = 1450;
+    var timerStyle = {
+      font: "68px Arial", fill: '#212121', fontWeight: 'bold', align: 'centered', wordWrap: true, wordWrapWidth: 1000
+    };
+
+    this.rankedModeText = this.game.add.text(x, timerY + 100, this.rankedMode ? 'ranqueado' : 'relaxado',  timerStyle);
+    this.rankedModeText.anchor.set(0.5);
+    this.screenElements.push(this.rankedModeText);
+  }
+
   setTimer () {
     const TIMER_COUNTER = 50;
     this.timer.loop(Phaser.Timer.SECOND * TIMER_COUNTER, this.timeOverAnswer, this);
     this.timer.start();
     this.timerCount = TIMER_COUNTER;
 
+
     var x = this.game.world.centerX;
     var timerY = 1450;
     var timerStyle = {
       font: "68px Arial", fill: '#212121', fontWeight: 'bold', align: 'centered', wordWrap: true, wordWrapWidth: 1000
-    }
+    };
 
     var count = Math.round(this.timer.duration / 1000);
     count = (count < 10) ? ("0" + count) : count;
@@ -207,6 +227,18 @@ class Main extends Phaser.State {
     this.tweenTimer = this.game.add.tween(this.timerText);
     this.tweenTimer.to({ fontSize: 80 }, 500, "Linear", true, 0, 0, true);
     this.tweenTimer.loop(1000);
+
+    this.drawTimerRank();
+    if (this.rankedMode) this.timer.start();
+    else this.timer.stop();
+
+    this.timerText.inputEnabled = true;
+    this.timerText.events.onInputDown.add(function (){
+      this.rankedMode = !this.rankedMode;
+      if (this.rankedMode) this.timer.start();
+      else this.timer.stop();
+      this.drawTimerRank();
+    }, this);
   }
 
   updateTimerText() {
