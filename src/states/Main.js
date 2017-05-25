@@ -192,12 +192,70 @@ class Main extends Phaser.State {
   }
 
   wrongAnswer () {
-    alert('Resposta errada... :(');
-    this.game.state.start("GameOver");
+
+    this.emptyScreen();
+
+    var bar = this.game.add.graphics();
+    bar.beginFill(0x000000, 0.2);
+    bar.drawRect(0, this.game.world.centerY - 300, this.game.world.width, 700);
+
+    var logo = this.game.add.sprite(this.game.world.centerX, this.game.world.centerY - 500, 'error');
+    logo.anchor.setTo(0.5);
+
+    var feedbackStyle = {
+      font: "88px Arial", fill: '#212121', fontWeight: 'bold',
+       align: 'center', wordWrap: true, wordWrapWidth: 1000,
+       boundsAlignH: 'middle', boundsAlignV: "middle"
+    };
+
+    var counterStyle = {
+      font: "88px Arial", fill: '#212121', fontWeight: 'bold',
+      align: 'center', wordWrap: true, wordWrapWidth: 1000
+    };
+
+    var nextTextStyle = {
+      font: "68px Arial", fill: '#212121', fontWeight: 'bold',
+       align: 'center', wordWrap: true, wordWrapWidth: 1000,
+       boundsAlignH: 'middle', boundsAlignV: "middle"
+    };
+
+    var feedBackMessage = "Oops !\nResposta Incorreta !"
+
+    var feedBackText = this.game.add.text(this.game.world.centerX, this.game.world.centerY-100, feedBackMessage,  feedbackStyle);
+    feedBackText.anchor.set(0.5);
+
+    var counterMessage = "Seus acertos: \n"+(this.currentIndex) + "/" + this.questions.length;
+    var questionCounterText = this.game.add.text(this.game.world.centerX, this.game.world.centerY+200, counterMessage,  counterStyle);
+    questionCounterText.anchor.set(0.5);
+
+    var nextButton = this.game.add.sprite(this.game.world.centerX,  this.game.world.centerY + 550, 'button');
+    nextButton.anchor.set(0.5);
+
+    var nextMessage = "Fim de Jogo";
+    var nextText = this.game.add.text(0, 0, nextMessage,  nextTextStyle);
+    nextText.wordWrapWidth = nextButton.width;
+    nextText.anchor.set(0.5);
+
+    nextButton.addChild(nextText);
+
+    nextButton.inputEnabled = true;
+    nextButton.events.onInputDown.add(this.gameOver, this);
+
+    this.screenElements.push(bar);
+    this.screenElements.push(logo);
+    this.screenElements.push(feedBackText);
+    this.screenElements.push(questionCounterText);
+    this.screenElements.push(nextButton);
+    this.screenElements.push(nextText);
+
   }
 
   timeOverAnswer () {
     alert('O seu tempo acabou... :(');
+    this.game.state.start("GameOver");
+  }
+
+  gameOver () {
     this.game.state.start("GameOver");
   }
 
