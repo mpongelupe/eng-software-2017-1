@@ -4,6 +4,7 @@ class Preload extends Phaser.State {
 	preload() {
 		this.game.load.image('logo', 'assets/logo.png');
 		this.game.load.image('button', 'assets/botao.png');
+		this.game.load.image('check', 'assets/check-icon.png');
     this.game.load.json('questions', 'perguntas.json');
 	}
 

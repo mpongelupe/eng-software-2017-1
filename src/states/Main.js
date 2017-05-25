@@ -136,20 +136,59 @@ class Main extends Phaser.State {
   correctAnswer () {
     this.emptyScreen();
 
-    this.logo = this.game.add.sprite(this.game.world.centerX, this.game.world.centerY - 200, 'logo');
-	  this.logo.anchor.setTo(0.5);
+    var bar = this.game.add.graphics();
+    bar.beginFill(0x000000, 0.2);
+    bar.drawRect(0, this.game.world.centerY - 300, this.game.world.width, 700);
 
-    var counterStyle = {
-      font: "96px Arial", fill: '#212121', fontWeight: 'bold',
-      backgroundColor: '#FFC107', align: 'centered', wordWrap: true, wordWrapWidth: 1000
+    var logo = this.game.add.sprite(this.game.world.centerX, this.game.world.centerY - 500, 'check');
+	  logo.anchor.setTo(0.5);
+
+    var feedbackStyle = {
+      font: "88px Arial", fill: '#212121', fontWeight: 'bold',
+       align: 'center', wordWrap: true, wordWrapWidth: 1000,
+       boundsAlignH: 'middle', boundsAlignV: "middle"
     };
 
-    this.questionCounterText = this.game.add.text(this.game.world.centerX, this.game.world.centerY+200, this.currentIndex+1 + "/" + this.questions.length,  counterStyle);
-    this.questionCounterText.anchor.set(0.5);
-    this.questionCounterText.inputEnabled = true;
-    this.questionCounterText.events.onInputDown.add(this.showNextQuestion, this);
-    this.screenElements.push(this.questionCounterText);
-    this.screenElements.push(this.logo);
+    var counterStyle = {
+      font: "88px Arial", fill: '#212121', fontWeight: 'bold',
+      align: 'center', wordWrap: true, wordWrapWidth: 1000
+    };
+
+    var nextTextStyle = {
+      font: "68px Arial", fill: '#212121', fontWeight: 'bold',
+       align: 'center', wordWrap: true, wordWrapWidth: 1000,
+       boundsAlignH: 'middle', boundsAlignV: "middle"
+    };
+
+    var feedBackMessage = "Parabéns !\nResposta Correta !"
+
+    var feedBackText = this.game.add.text(this.game.world.centerX, this.game.world.centerY-100, feedBackMessage,  feedbackStyle);
+    feedBackText.anchor.set(0.5);
+
+    var counterMessage = "Seu progresso: \n"+(this.currentIndex+1) + "/" + this.questions.length;
+    var questionCounterText = this.game.add.text(this.game.world.centerX, this.game.world.centerY+200, counterMessage,  counterStyle);
+    questionCounterText.anchor.set(0.5);
+
+    var nextButton = this.game.add.sprite(this.game.world.centerX,  this.game.world.centerY + 550, 'button');
+    nextButton.anchor.set(0.5);
+
+    var nextMessage = "Próxima pergunta";
+    var nextText = this.game.add.text(0, 0, nextMessage,  nextTextStyle);
+    nextText.wordWrapWidth = nextButton.width;
+    nextText.anchor.set(0.5);
+
+    nextButton.addChild(nextText);
+
+    nextButton.inputEnabled = true;
+    nextButton.events.onInputDown.add(this.showNextQuestion, this);
+
+    this.screenElements.push(bar);
+    this.screenElements.push(logo);
+    this.screenElements.push(feedBackText);
+    this.screenElements.push(questionCounterText);
+    this.screenElements.push(nextButton);
+    this.screenElements.push(nextText);
+
   }
 
   wrongAnswer () {
