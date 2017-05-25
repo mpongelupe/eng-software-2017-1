@@ -193,7 +193,7 @@ class Main extends Phaser.State {
       font: "68px Arial", fill: '#212121', fontWeight: 'bold', align: 'centered', wordWrap: true, wordWrapWidth: 1000
     };
 
-    this.rankedModeText = this.game.add.text(x, timerY + 100, this.rankedMode ? 'ranqueado' : 'relaxado',  timerStyle);
+    this.rankedModeText = this.game.add.text(x, timerY + 100, this.rankedMode ? 'modo ranqueado' : 'modo relaxado',  timerStyle);
     this.rankedModeText.anchor.set(0.5);
     this.screenElements.push(this.rankedModeText);
   }
