@@ -28,6 +28,49 @@ class GameTitle extends Phaser.State {
 		this.hint.visible = false;
 
 		this.game.input.onTap.add(this.tap, this);
+
+   		var ySeeRankButton = this.game.world.height*0.88;
+   		var yStartGameButton = this.game.world.height*0.75; 
+
+   		var startGameButtonStyle = {
+	      font: "68px Arial", fill: '#212121', fontWeight: 'bold',
+	       align: 'center', wordWrap: true, wordWrapWidth: 1000,
+	       boundsAlignH: 'middle', boundsAlignV: "middle"
+	    };
+
+	    var startGameButton = this.game.add.sprite(this.game.world.centerX,  yStartGameButton, 'button');
+	    startGameButton.anchor.set(0.5);
+	    //this.screenElements.push(startGameButton);
+
+	    var startGameButtonText = this.game.add.text(0, 0, "Iniciar jogo",  startGameButtonStyle);
+	    startGameButtonText.wordWrapWidth = startGameButton.width;
+	    startGameButtonText.anchor.set(0.5);
+	    //this.screenElements.push(startGameButtonText);
+
+	    startGameButton.addChild(startGameButtonText);
+
+	    startGameButton.inputEnabled = true;
+	    startGameButton.events.onInputDown.add(this.startGame, this);
+
+		var seeRankButtonStyle = {
+	      font: "68px Arial", fill: '#212121', fontWeight: 'bold',
+	       align: 'center', wordWrap: true, wordWrapWidth: 1000,
+	       boundsAlignH: 'middle', boundsAlignV: "middle"
+	    };
+
+	    var seeRankButton = this.game.add.sprite(this.game.world.centerX,  ySeeRankButton, 'button');
+	    seeRankButton.anchor.set(0.5);
+	    //this.screenElements.push(seeRankButton);
+
+	    var seeRankButtonText = this.game.add.text(0, 0, "Ver rank",  seeRankButtonStyle);
+	    seeRankButtonText.wordWrapWidth = seeRankButton.width;
+	    seeRankButtonText.anchor.set(0.5);
+	    //this.screenElements.push(seeRankButtonText);
+
+	    seeRankButton.addChild(seeRankButtonText);
+
+	    seeRankButton.inputEnabled = true;
+	    seeRankButton.events.onInputDown.add(this.showRank, this);
 	}
 
 	tap(tap, doubletap) {
@@ -42,7 +85,12 @@ class GameTitle extends Phaser.State {
 	}
 
 	startGame() {
-		
+		this.game.state.start("Main");
+	}
+
+	showRank()
+	{
+		this.game.state.start("Rank");
 	}
 
 }

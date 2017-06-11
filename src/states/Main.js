@@ -18,6 +18,9 @@ class Main extends Phaser.State {
     this.screenElements = []; // so that they can be removed when changing questions
     this.showCurrentQuestion();
     this.setTimer();
+
+    var score;
+    this.score = 0;
 	}
 
 	update() {
@@ -134,6 +137,9 @@ class Main extends Phaser.State {
   }
 
   correctAnswer () {
+
+    this.updateScore();
+
     this.timer.destroy();
     this.emptyScreen();
 
@@ -311,7 +317,21 @@ class Main extends Phaser.State {
   }
 
   gameOver () {
-    this.game.state.start("GameOver");
+
+    //TODO
+    // Determinar qual tela sera aberta dependendo da pontuacao.
+
+    // Se a pontuacao não é suficiente para entrar no rank, mostramos apenas a pontuação e as opções
+    // para ver o rank e reiniciar o jogo.
+
+      // Se não for ranqueado, devemos abrir essa tela.
+      this.showScoreScreen();
+
+    // Se a pontuação for suficiente para entrar no rank, mostramos a tela para adiconar 
+    // a nova pontuação.
+    //this.showNewScoreRecordScreen();
+
+    //this.game.state.start("GameOver"); <- Não esta sendo mais utilizada
   }
 
   showNextQuestion () {
@@ -400,6 +420,184 @@ class Main extends Phaser.State {
         this.timerCount = count;
         this.timerText.setText(this.timerCount);
     }
+  }
+
+  // Atualiza a pontuacao. A cada questao correta, é somado 100 pontos.
+  // O tempo de resposta tbm influencia no valor final dos pontos.
+  // Quanto mais rapido a resposta for respondida, mais ponto sera recebido.
+  updateScore()
+  {
+     this.score = 100*(this.currentIndex+1) + this.timerCount;
+     console.log("update score = " + this.score);
+  }
+
+  getScore()
+  {
+    console.log("get score = " + this.score);
+
+    return this.score;
+  }
+
+  showScoreScreen()
+  {
+    this.emptyScreen();
+
+    var topMargin = this.game.world.height*0.25;
+
+    var yScoreTextContainer = this.game.world.height*0.45; 
+    var scoreTextContainerHeight = this.game.world.height*0.25;
+
+    var ySeeRankButton = this.game.world.height*0.65;
+    var yRestartGameButton = this.game.world.height*0.80; 
+
+    var achievementImg = this.game.add.sprite(this.game.world.centerX, topMargin, 'achievement');
+    achievementImg.anchor.setTo(0.5);
+    this.screenElements.push(achievementImg);
+
+    var scoreTextStyle = {
+      font: "80px Arial", fill: '#ffffff', fontWeight: 'bold',
+      align: 'center', boundsAlignH: 'center', boundsAlignV: "middle",
+      wordWrap: true, wordWrapWidth: 1000
+    };
+
+    var scoreTextContainer  = this.game.add.graphics();
+    scoreTextContainer .beginFill(0x000000, 0.2);
+    scoreTextContainer .drawRect(0, topMargin, this.game.world.width, scoreTextContainerHeight);
+    this.screenElements.push(scoreTextContainer);
+
+    if(this.rankedMode)
+    {
+      var scoreText  = this.game.add.text(0, 0, "Sua pontuação foi \r\n " + this.getScore(),  scoreTextStyle);
+    }
+    else
+    {
+      var scoreText  = this.game.add.text(0, 0, "Fim de jogo!",  scoreTextStyle);
+    }
+
+    scoreText .setTextBounds(0, topMargin, this.game.world.width, scoreTextContainerHeight);
+    this.screenElements.push(scoreText);
+
+    var seeRankButtonStyle = {
+      font: "68px Arial", fill: '#212121', fontWeight: 'bold',
+       align: 'center', wordWrap: true, wordWrapWidth: 1000,
+       boundsAlignH: 'middle', boundsAlignV: "middle"
+    };
+
+    var seeRankButton = this.game.add.sprite(this.game.world.centerX,  ySeeRankButton, 'button');
+    seeRankButton.anchor.set(0.5);
+    this.screenElements.push(seeRankButton);
+
+    var seeRankButtonText = this.game.add.text(0, 0, "Ver rank",  seeRankButtonStyle);
+    seeRankButtonText.wordWrapWidth = seeRankButton.width;
+    seeRankButtonText.anchor.set(0.5);
+    this.screenElements.push(seeRankButtonText);
+
+    seeRankButton.addChild(seeRankButtonText);
+
+    seeRankButton.inputEnabled = true;
+    seeRankButton.events.onInputDown.add(this.showRank, this);
+
+    var restartGameButtonStyle = {
+      font: "68px Arial", fill: '#212121', fontWeight: 'bold',
+       align: 'center', wordWrap: true, wordWrapWidth: 1000,
+       boundsAlignH: 'middle', boundsAlignV: "middle"
+    };
+
+    var restartGameButton = this.game.add.sprite(this.game.world.centerX,  yRestartGameButton, 'button');
+    restartGameButton.anchor.set(0.5);
+    this.screenElements.push(restartGameButton);
+
+    var restartGameButtonText = this.game.add.text(0, 0, "Jogar novamente",  restartGameButtonStyle);
+    restartGameButtonText.wordWrapWidth = restartGameButton.width;
+    restartGameButtonText.anchor.set(0.5);
+    this.screenElements.push(restartGameButtonText);
+
+    restartGameButton.addChild(restartGameButtonText);
+
+    restartGameButton.inputEnabled = true;
+    restartGameButton.events.onInputDown.add(this.restartGame, this);
+
+  }
+
+  restartGame() {
+    this.game.state.start("GameTitle");
+  }
+
+  showNewScoreRecordScreen()
+  {
+    this.emptyScreen();
+
+    var topMargin = this.game.world.height*0.10;
+
+    var yNewScoreTextContainer = this.game.world.height*0.18; 
+    var newNewScoreTextContainerHeight = this.game.world.height*0.38;
+
+    var ySaveButton = this.game.world.height*0.75;
+    var yRestartGameButton = this.game.world.height*0.90; 
+
+    var newScoreImg = this.game.add.sprite(this.game.world.centerX, topMargin, 'newScore');
+    newScoreImg.anchor.setTo(0.5);
+    this.screenElements.push(newScoreImg);
+
+    var newNewScoreTextStyle = {
+      font: "72px Arial", fill: '#ffffff', fontWeight: 'bold',
+      align: 'center', boundsAlignH: 'center', boundsAlignV: "middle",
+      wordWrap: true, wordWrapWidth: 1000
+    };
+
+    var newNewScoreTextContainer  = this.game.add.graphics();
+    newNewScoreTextContainer .beginFill(0x000000, 0.2);
+    newNewScoreTextContainer .drawRect(0, yNewScoreTextContainer, this.game.world.width, newNewScoreTextContainerHeight);
+    this.screenElements.push(newNewScoreTextContainer);
+
+    var newNewScoreText  = this.game.add.text(0, 0, "Parabéns! \r\n Agora você ocupa a posição x do rank =) \r\n Digite seu nome no campo abaixo.",  newNewScoreTextStyle);
+    newNewScoreText .setTextBounds(0, yNewScoreTextContainer, this.game.world.width, newNewScoreTextContainerHeight);
+    this.screenElements.push(newNewScoreText);
+
+    var saveButtonStyle = {
+      font: "68px Arial", fill: '#212121', fontWeight: 'bold',
+       align: 'center', wordWrap: true, wordWrapWidth: 1000,
+       boundsAlignH: 'middle', boundsAlignV: "middle"
+    };
+
+    var saveButton = this.game.add.sprite(this.game.world.centerX,  ySaveButton, 'button');
+    saveButton.anchor.set(0.5);
+    this.screenElements.push(saveButton);
+
+    var saveButtonText = this.game.add.text(0, 0, "Salvar",  saveButtonStyle);
+    saveButtonText.wordWrapWidth = saveButton.width;
+    saveButtonText.anchor.set(0.5);
+    this.screenElements.push(saveButtonText);
+
+    saveButton.addChild(saveButtonText);
+
+    //saveButton.inputEnabled = true;
+    //saveButton.events.onInputDown.add(this.save, this);
+
+    var restartGameButtonStyle = {
+      font: "68px Arial", fill: '#212121', fontWeight: 'bold',
+       align: 'center', wordWrap: true, wordWrapWidth: 1000,
+       boundsAlignH: 'middle', boundsAlignV: "middle"
+    };
+
+    var restartGameButton = this.game.add.sprite(this.game.world.centerX,  yRestartGameButton, 'button');
+    restartGameButton.anchor.set(0.5);
+    this.screenElements.push(restartGameButton);
+
+    var restartGameButtonText = this.game.add.text(0, 0, "Jogar novamente",  restartGameButtonStyle);
+    restartGameButtonText.wordWrapWidth = restartGameButton.width;
+    restartGameButtonText.anchor.set(0.5);
+    this.screenElements.push(restartGameButtonText);
+
+    restartGameButton.addChild(restartGameButtonText);
+
+    restartGameButton.inputEnabled = true;
+    restartGameButton.events.onInputDown.add(this.restartGame, this);
+  }
+
+  showRank()
+  {
+    this.game.state.start("Rank");
   }
 }
 
