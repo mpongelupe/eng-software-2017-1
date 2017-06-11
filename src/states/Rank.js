@@ -1,11 +1,8 @@
 /* jshint esversion: 6 */
+
 class Rank extends Phaser.State {
 
 	create() {
-
-		localStorage.setItem('n1','-');
-		localStorage.setItem('s2','-');
-
 
 	    var topMargin = this.game.world.height*0.08;
 
@@ -18,7 +15,7 @@ class Rank extends Phaser.State {
 	    var verticalSpacing = this.game.world.width*0.01;
 	    var horizontalSpacing = this.game.world.height*0.01;
 
-	   	// Imagem do rank
+	   	// Imagem do rankImg
 	   	var rankImg = this.game.add.sprite(this.game.world.centerX, topMargin, 'rankImage');
 	    rankImg.anchor.setTo(0.5);
 
@@ -146,6 +143,7 @@ class Rank extends Phaser.State {
 
 	    restartGameButton.inputEnabled = true;
 	    restartGameButton.events.onInputDown.add(this.restartGame, this);
+
 	}
 
 	// Le o nome em uma posicao de n1 a n10, onde n se refere a "nome"
@@ -193,7 +191,6 @@ class Rank extends Phaser.State {
 	restartGame() {
 		this.game.state.start("GameTitle");
 	}
-
 }
 
 export default Rank;

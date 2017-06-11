@@ -27,7 +27,7 @@ class GameTitle extends Phaser.State {
 		this.hint.anchor.setTo(0.5);
 		this.hint.visible = false;
 
-		this.game.input.onTap.add(this.tap, this);
+		//this.game.input.onTap.add(this.tap, this);
 
    		var ySeeRankButton = this.game.world.height*0.88;
    		var yStartGameButton = this.game.world.height*0.75; 

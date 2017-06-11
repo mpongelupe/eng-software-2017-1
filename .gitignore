@@ -46,3 +46,5 @@ target
 node_modules
 
 build/*
+src/npm-debug.log
+npm-debug.log

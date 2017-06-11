@@ -21,6 +21,9 @@ class Main extends Phaser.State {
 
     var score;
     this.score = 0;
+
+    var userName;
+    this.userName = "";
 	}
 
 	update() {
@@ -316,20 +319,20 @@ class Main extends Phaser.State {
     this.screenElements.push(nextText);
   }
 
-  gameOver () {
-
-    //TODO
-    // Determinar qual tela sera aberta dependendo da pontuacao.
-
+  gameOver () 
+  {
     // Se a pontuacao não é suficiente para entrar no rank, mostramos apenas a pontuação e as opções
-    // para ver o rank e reiniciar o jogo.
-
-      // Se não for ranqueado, devemos abrir essa tela.
+    // para ver o rank e reiniciar o jogo. // Se não for ranqueado, devemos abrir essa tela.
+    if((this.score < this.minScoreOnRank()) || (!this.rankedMode) || this.score == 0)
+    {
       this.showScoreScreen();
-
-    // Se a pontuação for suficiente para entrar no rank, mostramos a tela para adiconar 
-    // a nova pontuação.
-    //this.showNewScoreRecordScreen();
+    }
+    else if((this.score >= this.minScoreOnRank()))
+    {
+      // Se a pontuação for suficiente para entrar no rank, mostramos a tela para adiconar 
+      // a nova pontuação.
+      this.showNewScoreRecordScreen();
+    }
 
     //this.game.state.start("GameOver"); <- Não esta sendo mais utilizada
   }
@@ -540,7 +543,7 @@ class Main extends Phaser.State {
     this.screenElements.push(newScoreImg);
 
     var newNewScoreTextStyle = {
-      font: "72px Arial", fill: '#ffffff', fontWeight: 'bold',
+      font: "68px Arial", fill: '#ffffff', fontWeight: 'bold',
       align: 'center', boundsAlignH: 'center', boundsAlignV: "middle",
       wordWrap: true, wordWrapWidth: 1000
     };
@@ -550,9 +553,11 @@ class Main extends Phaser.State {
     newNewScoreTextContainer .drawRect(0, yNewScoreTextContainer, this.game.world.width, newNewScoreTextContainerHeight);
     this.screenElements.push(newNewScoreTextContainer);
 
-    var newNewScoreText  = this.game.add.text(0, 0, "Parabéns! \r\n Agora você ocupa a posição x do rank =) \r\n Digite seu nome no campo abaixo.",  newNewScoreTextStyle);
+    var newNewScoreText  = this.game.add.text(0, 0, "Parabéns! Você marcou " + this.score + " pontos!\r\n Agora você ocupa a " + this.newScorePlaceOnRank() + "ª posição do rank =) \r\n Digite seu nome no campo abaixo.",  newNewScoreTextStyle);
     newNewScoreText .setTextBounds(0, yNewScoreTextContainer, this.game.world.width, newNewScoreTextContainerHeight);
     this.screenElements.push(newNewScoreText);
+
+    this.showInputText();
 
     var saveButtonStyle = {
       font: "68px Arial", fill: '#212121', fontWeight: 'bold',
@@ -571,8 +576,8 @@ class Main extends Phaser.State {
 
     saveButton.addChild(saveButtonText);
 
-    //saveButton.inputEnabled = true;
-    //saveButton.events.onInputDown.add(this.save, this);
+    saveButton.inputEnabled = true;
+    saveButton.events.onInputDown.add(this.saveNewRecord, this);
 
     var restartGameButtonStyle = {
       font: "68px Arial", fill: '#212121', fontWeight: 'bold',
@@ -593,6 +598,152 @@ class Main extends Phaser.State {
 
     restartGameButton.inputEnabled = true;
     restartGameButton.events.onInputDown.add(this.restartGame, this);
+  }
+
+  showInputText()
+  {
+
+    // DESCOMENTAR O CONTEUDO DESSA FUNCAO PARA HABILITAR O INPUTFIELD
+    /*
+    var xInputText = this.game.world.width*0.20;
+    var yInputText = this.game.world.height*0.60;
+    var inputTextWidth = this.game.world.width*0.60;
+    var inputTextHeight = this.game.world.width*0.60;
+
+    this.game.add.plugin(Fabrique.Plugins.InputField);
+
+    this.userName = this.game.add.inputField(xInputText, yInputText, {
+        font: '70px Arial',
+        fill: '#212121',
+        fontWeight: 'bold',
+        width: inputTextWidth,
+        padding: 8,
+        borderWidth: 1,
+        borderColor: '#000',
+        borderRadius: 6,
+        placeHolder: 'Digite seu nome',
+    });
+
+    this.userName.startFocus();
+    */
+  }
+
+  getInputText()
+  {
+    // DESCOMENTAR O CONTEUDO DESSA FUNCAO PARA HABILITAR USAR O INPUTFIELD
+    /*
+    return this.userName.value;
+    */
+  }
+
+  saveNewRecord()
+  {
+    if(this.getInputText() !== "")
+    {
+      this.saveNewRecordLocally();
+    }
+
+    this.showRank();
+  }
+
+  saveNewRecordLocally()
+  {
+    var saveIndex = 0;
+
+    var replaceOldScores = false;
+    var scoreCopy;
+    var scoreTemp;
+    var nameCopy;
+    var nameTemp;
+
+    for (var i = 1; i <= 10; i++) 
+    {
+      var readScore = localStorage.getItem('s' + i);
+
+      if(readScore === null && !replaceOldScores)
+      {
+        localStorage.setItem('s' + i,this.score);
+        localStorage.setItem('n' + i,this.getInputText());
+        break;
+      }
+      else
+      {
+        if(replaceOldScores)
+        {
+          scoreTemp = localStorage.getItem('s' + i);
+          console.log("scoreTemp = " + scoreTemp);
+
+          nameTemp = localStorage.getItem('n' + i);
+
+          localStorage.setItem('s' + i,scoreCopy);
+          localStorage.setItem('n' + i,nameCopy);
+
+          scoreCopy = scoreTemp;
+          nameCopy = nameTemp;
+
+          if(readScore === null)
+          {
+            break;
+          }
+        }
+      }
+
+      if((!replaceOldScores) && (this.score >= readScore))
+      {
+        replaceOldScores = true;
+        saveIndex = i;
+        scoreCopy = localStorage.getItem('s' + i);
+        nameCopy = localStorage.getItem('n' + i); 
+        localStorage.setItem('s' + saveIndex,this.score);
+        localStorage.setItem('n' + saveIndex,this.getInputText());
+        console.log("Save new score");
+      }
+
+      console.log(readScore);
+    }
+  }
+
+  newScorePlaceOnRank()
+  {
+    var newScorePlace = 1;
+
+    for (var i = 1; i <= 10; i++) 
+    {
+      var readScore = localStorage.getItem('s' + i);
+
+      if(readScore === null)
+      {
+        newScorePlace = i;
+        break;
+      }
+
+      if(this.score >= readScore)
+      {
+        newScorePlace = i;
+        break;
+      }
+    }
+
+    return newScorePlace;
+  }
+
+  minScoreOnRank()
+  {
+    var minScore = 0;
+
+    for (var i = 1; i <= 10; i++) 
+    {
+      var readScore = localStorage.getItem('s' + i);
+
+      if(readScore === null)
+      {
+        break;
+      }
+
+      minScore = readScore;
+    }
+
+    return minScore;
   }
 
   showRank()
