@@ -6,7 +6,7 @@ class Rank extends Phaser.State {
 
 	    var topMargin = this.game.world.height*0.08;
 
-	    var yScoreTextContainer = this.game.world.height*0.15; 
+	    var yScoreTextContainer = this.game.world.height*0.15;
 	    var titleContainerHeight = this.game.world.height*0.10;
 
 	    var yRestartGameButton = this.game.world.height*0.85;
@@ -107,7 +107,7 @@ class Rank extends Phaser.State {
 	    nameContentsContainer.beginFill(0x000000, 0.2);
 	    nameContentsContainer.drawRect(xNameContentsContainer, yNameContentsContainer, nameContentsContainerWidth, nameContentsContainerHeight);
 
-	   	var nameContentsText  = this.game.add.text(0, 0, '\n ' + this.readRankName('n1') + ' \n ' + this.readRankName('n2') + ' \n ' + this.readRankName('n3') + ' \n ' + this.readRankName('n4') + ' \n ' + this.readRankName('n5') + 
+	   	var nameContentsText  = this.game.add.text(0, 0, '\n ' + this.readRankName('n1') + ' \n ' + this.readRankName('n2') + ' \n ' + this.readRankName('n3') + ' \n ' + this.readRankName('n4') + ' \n ' + this.readRankName('n5') +
 	   													' \n ' + this.readRankName('n6') + ' \n ' + this.readRankName('n7') + ' \n ' + this.readRankName('n8') + ' \n ' + this.readRankName('n9') + ' \n ' + this.readRankName('n10') + ' \n',  contentTextStyle);
 	    nameContentsText.setTextBounds(xNameContentsContainer, yNameContentsContainer, nameContentsContainerWidth, nameContentsContainerHeight);
 
@@ -121,7 +121,7 @@ class Rank extends Phaser.State {
 	    scoreContentsContainer.beginFill(0x000000, 0.2);
 	    scoreContentsContainer.drawRect(xScoreContentsContainer, yScoreContentsContainer, scoreContentsContainerWidth, scoreContentsContainerHeight);
 
-	   	var scoreContentsText  = this.game.add.text(0, 0, '\n ' + this.readRankName('s1') + ' \n ' + this.readRankName('s2') + ' \n ' + this.readRankName('s3') + ' \n ' + this.readRankName('s4') + ' \n ' + this.readRankName('s5') + 
+	   	var scoreContentsText  = this.game.add.text(0, 0, '\n ' + this.readRankName('s1') + ' \n ' + this.readRankName('s2') + ' \n ' + this.readRankName('s3') + ' \n ' + this.readRankName('s4') + ' \n ' + this.readRankName('s5') +
 	   													 ' \n ' + this.readRankName('s6') + ' \n ' + this.readRankName('s7') + ' \n ' + this.readRankName('s8') + ' \n ' + this.readRankName('s9') + ' \n ' + this.readRankName('s10') + ' \n',  contentTextStyle);
 	    scoreContentsText.setTextBounds(xScoreContentsContainer, yScoreContentsContainer, scoreContentsContainerWidth, scoreContentsContainerHeight);
 
@@ -151,7 +151,7 @@ class Rank extends Phaser.State {
 	{
 		return this.readRankNameFromLocalData(index);
 	}
- 
+
 	// Le o nome em uma posicao de n1 a n10 armazenada localmente.
 	readRankNameFromLocalData(index)
 	{
@@ -170,7 +170,7 @@ class Rank extends Phaser.State {
 	// Le o nome em uma posicao de s1 a s10, onde s se refere a "score"
 	readRankScore(index)
 	{
-		return this.readRankScoreFromLocalData(index); 
+		return this.readRankScoreFromLocalData(index);
 	}
 
 	// Le o nome em uma posicao de s1 a s10 armazenada localmente.

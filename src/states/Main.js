@@ -319,7 +319,7 @@ class Main extends Phaser.State {
     this.screenElements.push(nextText);
   }
 
-  gameOver () 
+  gameOver ()
   {
     // Se a pontuacao não é suficiente para entrar no rank, mostramos apenas a pontuação e as opções
     // para ver o rank e reiniciar o jogo. // Se não for ranqueado, devemos abrir essa tela.
@@ -329,7 +329,7 @@ class Main extends Phaser.State {
     }
     else if((this.score >= this.minScoreOnRank()))
     {
-      // Se a pontuação for suficiente para entrar no rank, mostramos a tela para adiconar 
+      // Se a pontuação for suficiente para entrar no rank, mostramos a tela para adiconar
       // a nova pontuação.
       this.showNewScoreRecordScreen();
     }
@@ -447,11 +447,11 @@ class Main extends Phaser.State {
 
     var topMargin = this.game.world.height*0.25;
 
-    var yScoreTextContainer = this.game.world.height*0.45; 
+    var yScoreTextContainer = this.game.world.height*0.45;
     var scoreTextContainerHeight = this.game.world.height*0.25;
 
     var ySeeRankButton = this.game.world.height*0.65;
-    var yRestartGameButton = this.game.world.height*0.80; 
+    var yRestartGameButton = this.game.world.height*0.80;
 
     var achievementImg = this.game.add.sprite(this.game.world.centerX, topMargin, 'achievement');
     achievementImg.anchor.setTo(0.5);
@@ -532,11 +532,11 @@ class Main extends Phaser.State {
 
     var topMargin = this.game.world.height*0.10;
 
-    var yNewScoreTextContainer = this.game.world.height*0.18; 
+    var yNewScoreTextContainer = this.game.world.height*0.18;
     var newNewScoreTextContainerHeight = this.game.world.height*0.38;
 
     var ySaveButton = this.game.world.height*0.75;
-    var yRestartGameButton = this.game.world.height*0.90; 
+    var yRestartGameButton = this.game.world.height*0.90;
 
     var newScoreImg = this.game.add.sprite(this.game.world.centerX, topMargin, 'newScore');
     newScoreImg.anchor.setTo(0.5);
@@ -604,7 +604,7 @@ class Main extends Phaser.State {
   {
 
     // DESCOMENTAR O CONTEUDO DESSA FUNCAO PARA HABILITAR O INPUTFIELD
-    /*
+
     var xInputText = this.game.world.width*0.20;
     var yInputText = this.game.world.height*0.60;
     var inputTextWidth = this.game.world.width*0.60;
@@ -625,15 +625,15 @@ class Main extends Phaser.State {
     });
 
     this.userName.startFocus();
-    */
+
   }
 
   getInputText()
   {
     // DESCOMENTAR O CONTEUDO DESSA FUNCAO PARA HABILITAR USAR O INPUTFIELD
-    /*
+
     return this.userName.value;
-    */
+    
   }
 
   saveNewRecord()
@@ -656,7 +656,7 @@ class Main extends Phaser.State {
     var nameCopy;
     var nameTemp;
 
-    for (var i = 1; i <= 10; i++) 
+    for (var i = 1; i <= 10; i++)
     {
       var readScore = localStorage.getItem('s' + i);
 
@@ -693,7 +693,7 @@ class Main extends Phaser.State {
         replaceOldScores = true;
         saveIndex = i;
         scoreCopy = localStorage.getItem('s' + i);
-        nameCopy = localStorage.getItem('n' + i); 
+        nameCopy = localStorage.getItem('n' + i);
         localStorage.setItem('s' + saveIndex,this.score);
         localStorage.setItem('n' + saveIndex,this.getInputText());
         console.log("Save new score");
@@ -707,7 +707,7 @@ class Main extends Phaser.State {
   {
     var newScorePlace = 1;
 
-    for (var i = 1; i <= 10; i++) 
+    for (var i = 1; i <= 10; i++)
     {
       var readScore = localStorage.getItem('s' + i);
 
@@ -731,7 +731,7 @@ class Main extends Phaser.State {
   {
     var minScore = 0;
 
-    for (var i = 1; i <= 10; i++) 
+    for (var i = 1; i <= 10; i++)
     {
       var readScore = localStorage.getItem('s' + i);
 
