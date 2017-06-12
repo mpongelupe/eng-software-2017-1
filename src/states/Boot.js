@@ -7,6 +7,7 @@ class Boot extends Phaser.State {
 
 	create() {
 		//this.scale.scaleMode = Phaser.ScaleManager.SHOW_ALL;
+        this.game.stage.backgroundColor = '#03A9F4';
 		this.game.state.start("Preload");
 	}
 }
