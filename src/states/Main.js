@@ -453,7 +453,7 @@ class Main extends Phaser.State {
     var ySeeRankButton = this.game.world.height*0.65;
     var yRestartGameButton = this.game.world.height*0.80;
 
-    var achievementImg = this.game.add.sprite(this.game.world.centerX, topMargin, 'achievement');
+    var achievementImg = this.game.add.sprite(this.game.world.centerX, topMargin - 100, 'achievement');
     achievementImg.anchor.setTo(0.5);
     this.screenElements.push(achievementImg);
 
@@ -633,7 +633,7 @@ class Main extends Phaser.State {
     // DESCOMENTAR O CONTEUDO DESSA FUNCAO PARA HABILITAR USAR O INPUTFIELD
 
     return this.userName.value;
-    
+
   }
 
   saveNewRecord()
