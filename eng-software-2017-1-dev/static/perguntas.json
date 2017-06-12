@@ -1,0 +1,334 @@
+{
+    "perguntas": [
+        {
+            "dificuldade": 0,
+            "pergunta": "Das alternativas abaixo qual melhor descreve o significado de requisito no contexto da engenharia de software?",
+            "respostas": [
+                {
+                    "resposta": "Característica que define os critérios de aceitação de um software.",
+                    "certa": true
+                },
+                {
+                    "resposta": "Função essencial para o correto funcionamento de um software.",
+                    "certa": false
+                },
+                {
+                    "resposta": "Componente de hardware necessário para executar um software.",
+                    "certa": false
+                },
+                {
+                    "resposta": "Função adicional de um software.",
+                    "certa": false
+                }
+            ]
+        },
+        {
+            "dificuldade": 0,
+            "pergunta": "Qual das alternativas abaixo não compreende o controle de projetos?",
+            "respostas": [
+                {
+                    "resposta": "Teste das versões implementadas do software.",
+                    "certa": true
+                },
+                {
+                    "resposta": "A busca de alternativas para contornar problemas descobertos durante a execução.",
+                    "certa": false
+                },
+                {
+                    "resposta": "Renegociação dos compromissos assumidos.",
+                    "certa": false
+                },
+                {  
+                    "resposta": "Replanejamento dos projetos dentro de um grau razoável de variação.",
+                    "certa": false
+                }
+            ]
+        },
+        {
+            "dificuldade": 0,
+            "pergunta": "Qual das alternativas abaixo não faz parte do ciclo de vida de um software?",
+            "respostas": [
+                {
+                    "resposta": "Gestão.",
+                    "certa": true
+                },
+                {
+                    "resposta": "Desenvolvimento.",
+                    "certa": false
+                },
+                {
+                    "resposta": "Criação.",
+                    "certa": false
+                },
+                {  
+                    "resposta": "Operação.",
+                    "certa": false
+                }
+            ]
+        },
+        {
+            "dificuldade": 0,
+            "pergunta": "Quais dessas profissões não possui papel técnico?",
+            "respostas": [
+                {
+                    "resposta": "Gerente.",
+                    "certa": true
+                },
+                {
+                    "resposta": "Desenvolvedor.",
+                    "certa": false
+                },
+                {
+                    "resposta": "Engenheiro de suporte.",
+                    "certa": false
+                },
+                {  
+                    "resposta": "Engenheiro de qualidade.",
+                    "certa": false
+                }
+            ]
+        },
+        {
+            "dificuldade": 1,
+            "pergunta": "Quais são os principais fatores determinantes na produção de um software?",
+            "respostas": [
+                {
+                    "resposta": "Processos, pessoas e tecnologia.",
+                    "certa": true
+                },
+                {
+                    "resposta": "Processos, projeto e tecnologia.",
+                    "certa": false
+                },
+                {
+                    "resposta": "Processos, pessoas e projeto.",
+                    "certa": false
+                },
+                {  
+                    "resposta": "Projeto, pessoas e tecnologia.",
+                    "certa": false
+                }
+            ]
+        },
+        {
+            "dificuldade": 1,
+            "pergunta": "Qual das alternativas a seguir melhor descreve o Nível 2 de capacitação de uma organização estabelecidos pela CMMI?",
+            "respostas": [
+                {
+                    "resposta": "Processo executado e mantido por uma infraestrutura mesmo em situações adversas.",
+                    "certa": true
+                },
+                {
+                    "resposta": "Processo executado, mas não institucionalizado.",
+                    "certa": false
+                },
+                {
+                    "resposta": "Processo não executado ou executado parcialmente, uma ou mais metas específicas não atendidas.",
+                    "certa": false
+                },
+                {  
+                    "resposta": "Processo gerido e descrito formalmente. Derivado de processos padrão da organização.",
+                    "certa": false
+                }
+            ]
+        },
+        {
+            "dificuldade": 1,
+            "pergunta": "Qual das alternativas abaixo melhor representa o modelo de ciclo de vida de um software em cascata?",
+            "respostas": [
+                {
+                    "resposta": "Requisitos - Análise - Desenho - Implementação - Testes - Implantação",
+                    "certa": true
+                },
+                {
+                    "resposta": "Análise - Requisitos - Desenho - Implementação - Testes - Implantação",
+                    "certa": false
+                },
+                {
+                    "resposta": "Requisitos - Análise - Desenho - Implementação - Implantação - Testes",
+                    "certa": false
+                },
+                {  
+                    "resposta": "Análise - Requisitos - Desenho - Implementação - Implantação - Testes",
+                    "certa": false
+                }
+            ]
+        },
+        {
+            "dificuldade": 1,
+            "pergunta": "São modelos de ciclo de vida de um software, exceto:",
+            "respostas": [
+                {
+                    "resposta": "Pirâmide.",
+                    "certa": true
+                },
+                {
+                    "resposta": "Espiral.",
+                    "certa": false
+                },
+                {
+                    "resposta": "Cascata.",
+                    "certa": false
+                },
+                {  
+                    "resposta": "Prototipagem evolutiva.",
+                    "certa": false
+                }
+            ]
+        },
+        {
+            "dificuldade": 1,
+            "pergunta": "São tarefas referentes a inspeção da análise, exceto:",
+            "respostas": [
+                {
+                    "resposta": "Assegurar que a visão de análise esteja simples e sucinta.",
+                    "certa": true
+                },
+                {
+                    "resposta": "Assegurar que a visão de análise esteja conforme com o respectivo padrão.",
+                    "certa": false
+                },
+                {
+                    "resposta": "Assegurar que a visão de análise atenda aos critérios de qualidade de modelagem.",
+                    "certa": false
+                },
+                {  
+                    "resposta": "Assegurar que a visão de análise forneça informação suficiente.",
+                    "certa": false
+                }
+            ]
+        },
+        {
+            "dificuldade": 1,
+            "pergunta": "Das alternativas abaixo, qual representa uma função de uma classe?",
+            "respostas": [
+                {
+                    "resposta": "Suprimir compartimentos de atributos e operações.",
+                    "certa": true
+                },
+                {
+                    "resposta": "Descrições de espaços com nome e tipo.",
+                    "certa": false
+                },
+                {
+                    "resposta": "Esconder implementação através de interface.",
+                    "certa": false
+                },
+                {  
+                    "resposta": "Reservar lugar para objetos.",
+                    "certa": false
+                }
+            ]
+        },
+        {
+            "dificuldade": 1,
+            "pergunta": "Qual das alternativas é uma função realizada pelo arquiteto?",
+            "respostas": [
+                {
+                    "resposta": "Entendimento analítico dos requisitos do produto.",
+                    "certa": true
+                },
+                {
+                    "resposta": "Atividade de suporte ao desenvolvimento.",
+                    "certa": false
+                },
+                {
+                    "resposta": "Atividade relativa à qualidade de processos e produtos.",
+                    "certa": false
+                },
+                {  
+                    "resposta": "Atividades direta de desenvolvimento.",
+                    "certa": false
+                }
+            ]
+        },
+        {
+            "dificuldade": 1,
+            "pergunta": "As afirmativas abaixo são sobre as funções de um diretor, exceto:",
+            "respostas": [
+                {
+                    "resposta": "Responsável por toda manutenção do mecanismo que garante o andamento correto das funções de apoio administrativo.",
+                    "certa": true
+                },
+                {
+                    "resposta": "Dirigente do mais alto nível da organização.",
+                    "certa": false
+                },
+                {
+                    "resposta": "Focaliza vitalidade de longo prazo da organização.",
+                    "certa": false
+                },
+                {  
+                    "resposta": "Não tem compromissos e preocupações de curto prazo.",
+                    "certa": false
+                }
+            ]
+        },
+        {
+            "dificuldade": 1,
+            "pergunta": "Qual dos itens a seguir não faz parte dos erros relativos ao processo?",
+            "respostas": [
+                {
+                    "resposta": "Inchaço dos requisitos.",
+                    "certa": true
+                },
+                {
+                    "resposta": "Tempo desperdiçado antes do início do projeto.",
+                    "certa": false
+                },
+                {
+                    "resposta": "Pressões causadas  por prazos excessivamente otimistas.",
+                    "certa": false
+                },
+                {  
+                    "resposta": "Planejamento insuficiente.",
+                    "certa": false
+                }
+            ]
+        },
+        {
+            "dificuldade": 2,
+            "pergunta": "Considerando o conceito de qualidade, qual das alternativas abaixo apresenta o maior retorno de investimento em capacitação?",
+            "respostas": [
+                {
+                    "resposta": "Mudanças no processo de desenvolvimento.",
+                    "certa": true
+                },
+                {
+                    "resposta": "Capacitação de mão de obra.",
+                    "certa": false
+                },
+                {
+                    "resposta": "Recrutamento de mão de obra qualificada.",
+                    "certa": false
+                },
+                {  
+                    "resposta": "Investimento em tecnologia.",
+                    "certa": false
+                }
+            ]
+        },
+        {
+            "dificuldade": 2,
+            "pergunta": "Considerando o processo Praxis, qual das alternativas abaixo apresenta a nomenclatura adequada para um “Passo”?",
+            "respostas": [
+                {
+                    "resposta": "Divisão formal do processo. Possui pré-requisitos, entradas, critérios de aprovação e resultados.",
+                    "certa": true
+                },
+                {
+                    "resposta": "Etapa de uma fase na qual se atinge objetivos definidos de um projeto.",
+                    "certa": false
+                },
+                {
+                    "resposta": "Divisão grande utilizada para fins gerenciais. Demarcada por pontos de aceitação do cliente.",
+                    "certa": false
+                },
+                {  
+                    "resposta": "“Receita de bolo” de como realizar uma iteração.",
+                    "certa": false
+                }
+            ]
+        }
+    ]
+}
