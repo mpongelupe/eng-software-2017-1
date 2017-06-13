@@ -38,7 +38,7 @@ class Main extends Phaser.State {
     music6.fadeOut(4000)
     // clear screen from previous answer texts
     this.emptyScreen();
-    
+
     var x = 20;
     var questionY = 100;
     var answerY = 600;
@@ -144,7 +144,7 @@ class Main extends Phaser.State {
   }
 
   correctAnswer () {
-    
+
     //Audio acertou
     var music4 = this.game.add.audio('track4');
     music4.play();
@@ -208,7 +208,7 @@ class Main extends Phaser.State {
     this.screenElements.push(questionCounterText);
     this.screenElements.push(nextButton);
     this.screenElements.push(nextText);
-    
+
   }
 
   wrongAnswer () {
@@ -275,7 +275,7 @@ class Main extends Phaser.State {
   }
 
   timeOverAnswer () {
-    
+
     //Aduio relaxado
     var music3 = this.game.add.audio('track3');
     music3.play();
@@ -366,13 +366,42 @@ class Main extends Phaser.State {
     }
   }
 
+  shuffle(array) {
+    var currentIndex = array.length, temporaryValue, randomIndex;
+
+    // While there remain elements to shuffle...
+    while (0 !== currentIndex) {
+
+      // Pick a remaining element...
+      randomIndex = Math.floor(Math.random() * currentIndex);
+      currentIndex -= 1;
+
+      // And swap it with the current element.
+      temporaryValue = array[currentIndex];
+      array[currentIndex] = array[randomIndex];
+      array[randomIndex] = temporaryValue;
+    }
+
+    return array;
+  }
+
   getQuestions () {
-    this.questions = this.game.cache.getJSON('questions').perguntas;
-    this.questions.sort(function (a, b) {
-      if (a.dificuldade > b.dificuldade) return 1;
-      if (a.dificuldade < b.dificuldade) return -1;
-      if (a.dificuldade == b.dificuldade) return 0;
-    });
+    var questions = this.game.cache.getJSON('questions').perguntas;
+    questions = this.shuffle(questions);
+    var count = 0;
+    var totalPerguntas = 12;
+    var nDificuldades = 3;
+    this.questions = [];
+    for(var i = 0; i < nDificuldades; i++){
+      this.questions = this.questions.concat(questions.filter(function(item){
+        if(item.dificuldade == i && count < totalPerguntas/nDificuldades) {
+          count ++;
+          return true;
+        }
+        return false;
+      }));
+      count = 0;
+    }
   }
 
   drawTimerRank() {

@@ -24,7 +24,7 @@
         },
         {
             "dificuldade": 0,
-            "pergunta": "Qual das alternativas abaixo não compreende o controle de projetos?",
+            "pergunta": "Qual das alternativas abaixo NÃO compreende o controle de projetos?",
             "respostas": [
                 {
                     "resposta": "Teste das versões implementadas do software.",
@@ -38,8 +38,140 @@
                     "resposta": "Renegociação dos compromissos assumidos.",
                     "certa": false
                 },
-                {  
+                {
                     "resposta": "Replanejamento dos projetos dentro de um grau razoável de variação.",
+                    "certa": false
+                }
+            ]
+        },
+        {
+            "dificuldade": 0,
+            "pergunta": "Considerando os modelos de ciclo de vida de um software é correto afirmar que:",
+            "respostas": [
+                {
+                    "resposta": "O modelo em cascata é o mais simples e o mais rígido.",
+                    "certa": true
+                },
+                {
+                    "resposta": "A fase de implementação é sempre a última em todos os modelos.",
+                    "certa": false
+                },
+                {
+                    "resposta": "O modelo em espiral é simples, mas extremamente rígido.",
+                    "certa": false
+                },
+                {
+                    "resposta": "O modelo em cascata com realimentação é o mais fácil de gerenciar.",
+                    "certa": false
+                }
+            ]
+        },
+        {
+            "dificuldade": 0,
+            "pergunta": "Qual das alternativas abaixo NÃO descreve uma característica do projeto no contexto da engenharia de software.",
+            "respostas": [
+                {
+                    "resposta": "É padronizado.",
+                    "certa": true
+                },
+                {
+                    "resposta": "É temporário.",
+                    "certa": false
+                },
+                {
+                    "resposta": "Opera conforme um plano.",
+                    "certa": false
+                },
+                {
+                    "resposta": "Entrega um ou mais produtos a um cliente ou usuário.",
+                    "certa": false
+                }
+            ]
+        },
+        {
+            "dificuldade": 0,
+            "pergunta": "Qual das alternativas abaixo melhor descreve o objetivo do desenho de teste:",
+            "respostas": [
+                {
+                    "resposta": "Encontrar testes com alta probabilidade de descobrir erros com o mínimo de esforço.",
+                    "certa": true
+                },
+                {
+                    "resposta": "Encontrar testes que consigam detectar todos os erros de um software.",
+                    "certa": false
+                },
+                {
+                    "resposta": "Encontrar testes que consigam detectar todas as entradas inválidas de um software.",
+                    "certa": false
+                },
+                {
+                    "resposta": "Encontrar testes que permitam verificar a conformidade com os requisitos.",
+                    "certa": false
+                }
+            ]
+        },
+        {
+            "dificuldade": 0,
+            "pergunta": "Qual das alternativas abaixo NÃO é um indicador de tamanho de software.",
+            "respostas": [
+                {
+                    "resposta": "Pontos de pacote.",
+                    "certa": true
+                },
+                {
+                    "resposta": "Pontos de caso de uso.",
+                    "certa": false
+                },
+                {
+                    "resposta": "Pontos de função.",
+                    "certa": false
+                },
+                {
+                    "resposta": "Linhas de código.",
+                    "certa": false
+                }
+            ]
+        },
+        {
+            "dificuldade": 0,
+            "pergunta": "No contexto da Engenharia de Software, qual das alternativas abaixo melhor descreve o conceito de alta qualidade?",
+            "respostas": [
+                {
+                    "resposta": "Grau de conformidade com os requisitos.",
+                    "certa": true
+                },
+                {
+                    "resposta": "Nível de satisfação do cliente.",
+                    "certa": false
+                },
+                {
+                    "resposta": "Quantidade de defeitos do software.",
+                    "certa": false
+                },
+                {
+                    "resposta": "Tempo de execução de uma função.",
+                    "certa": false
+                }
+            ]
+        },
+        {
+            "dificuldade": 0,
+            "pergunta": "Considerando o Diagrama de Classes da UML 2.0 uma classe pode ser descrita como:",
+            "respostas": [
+                {
+                    "resposta": "Conjunto de objetos com os mesmo atributos, operações, relacionamentos e comportamentos.",
+                    "certa": true
+                },
+                {
+                    "resposta": "Parte modular do desenho de sistema.",
+                    "certa": false
+                },
+                {
+                    "resposta": "Descrição de uma coleção de objetos que interagem para implementar um comportamento.",
+                    "certa": false
+                },
+                {
+                    "resposta": "Entidade discreta com uma fronteira definida, identidade própria e que encapsula um estalo e comportamento.",
                     "certa": false
                 }
             ]
@@ -60,7 +192,7 @@
                     "resposta": "Criação.",
                     "certa": false
                 },
-                {  
+                {
                     "resposta": "Operação.",
                     "certa": false
                 }
@@ -82,8 +214,140 @@
                     "resposta": "Engenheiro de suporte.",
                     "certa": false
                 },
-                {  
+                {
                     "resposta": "Engenheiro de qualidade.",
+                    "certa": false
+                }
+            ]
+        },
+        {
+            "dificuldade": 0,
+            "pergunta": "O Diagrama da UML que representa o comportamento interno de determinado objeto, subsistema ou sistema global denomina-se diagrama de:",
+            "respostas": [
+                {
+                    "resposta": "Estado.",
+                    "certa": true
+                },
+                {
+                    "resposta": "Colaboração.",
+                    "certa": false
+                },
+                {
+                    "resposta": "Sequência.",
+                    "certa": false
+                },
+                {
+                    "resposta": "Classe.",
+                    "certa": false
+                }
+            ]
+        },
+        {
+            "dificuldade": 0,
+            "pergunta": "Assinale a alternativa que apresenta um exemplo de diagrama de estruturas da UML.",
+            "respostas": [
+                {
+                    "resposta": "Diagrama de implantação.",
+                    "certa": true
+                },
+                {
+                    "resposta": "Diagrama de atividades.",
+                    "certa": false
+                },
+                {
+                    "resposta": "Diagrama de caso de uso.",
+                    "certa": false
+                },
+                {
+                    "resposta": "Diagrama de sequência.",
+                    "certa": false
+                }
+            ]
+        },
+        {
+            "dificuldade": 0,
+            "pergunta": "Em desenvolvimento de sistemas, a linguagem padrão usada para especificar, visualizar e documentar um sistema e que possui, como vantagem, a visualização gráfica, é:",
+            "respostas": [
+                {
+                    "resposta": "UML.",
+                    "certa": true
+                },
+                {
+                    "resposta": "SQL.",
+                    "certa": false
+                },
+                {
+                    "resposta": "Scrum.",
+                    "certa": false
+                },
+                {
+                    "resposta": "C.",
+                    "certa": false
+                }
+            ]
+        },
+        {
+            "dificuldade": 0,
+            "pergunta": "Dentre os requisitos não funcionais de produto, podemos citar os requisitos",
+            "respostas": [
+                {
+                    "resposta": "De eficiência e de confiança.",
+                    "certa": true
+                },
+                {
+                    "resposta": "Contábeis e de desempenho.",
+                    "certa": false
+                },
+                {
+                    "resposta": "Legais e de usabilidade.",
+                    "certa": false
+                },
+                {
+                    "resposta": "Reguladores e de proteção.",
+                    "certa": false
+                }
+            ]
+        },
+        {
+            "dificuldade": 0,
+            "pergunta": "Para que a fase de execução de teste, seja realizada com sucesso devem ser executados:",
+            "respostas": [
+                {
+                    "resposta": "Os casos de teste.",
+                    "certa": true
+                },
+                {
+                    "resposta": "Os diagramas de atividade.",
+                    "certa": false
+                },
+                {
+                    "resposta": "Os casos de uso.",
+                    "certa": false
+                },
+                {
+                    "resposta": "Os testes de Turing.",
+                    "certa": false
+                }
+            ]
+        },
+        {
+            "dificuldade": 0,
+            "pergunta": "O primeiro passo necessário no processo de criação de um documento de requisitos deve ser a(o): ",
+            "respostas": [
+                {
+                    "resposta": "Análise de viabilidade.",
+                    "certa": true
+                },
+                {
+                    "resposta": "Prototipagem do sistema.",
+                    "certa": false
+                },
+                {
+                    "resposta": "Geração de casos de teste.",
+                    "certa": false
+                },
+                {
+                    "resposta": "Design da aplicação.",
                     "certa": false
                 }
             ]
@@ -104,7 +368,7 @@
                     "resposta": "Processos, pessoas e projeto.",
                     "certa": false
                 },
-                {  
+                {
                     "resposta": "Projeto, pessoas e tecnologia.",
                     "certa": false
                 }
@@ -126,7 +390,7 @@
                     "resposta": "Processo não executado ou executado parcialmente, uma ou mais metas específicas não atendidas.",
                     "certa": false
                 },
-                {  
+                {
                     "resposta": "Processo gerido e descrito formalmente. Derivado de processos padrão da organização.",
                     "certa": false
                 }
@@ -148,7 +412,7 @@
                     "resposta": "Requisitos - Análise - Desenho - Implementação - Implantação - Testes",
                     "certa": false
                 },
-                {  
+                {
                     "resposta": "Análise - Requisitos - Desenho - Implementação - Implantação - Testes",
                     "certa": false
                 }
@@ -170,7 +434,7 @@
                     "resposta": "Cascata.",
                     "certa": false
                 },
-                {  
+                {
                     "resposta": "Prototipagem evolutiva.",
                     "certa": false
                 }
@@ -192,8 +456,74 @@
                     "resposta": "Assegurar que a visão de análise atenda aos critérios de qualidade de modelagem.",
                     "certa": false
                 },
-                {  
+                {
                     "resposta": "Assegurar que a visão de análise forneça informação suficiente.",
+                    "certa": false
+                }
+            ]
+        },
+        {
+            "dificuldade": 1,
+            "pergunta": "Considerando a disciplina de requisitos da engenharia de software só NÃO podemos afirmar que:",
+            "respostas": [
+                {
+                    "resposta": "Uma das técnicas utilizadas é a prototipagem, a qual produz uma versão parcial de baixa fidelidade do produto que já serve de base para o produto final.",
+                    "certa": true
+                },
+                {
+                    "resposta": "O principal artefato produzido é o modelo de problema. Este deve incluir todas as características esperadas do software em questão.",
+                    "certa": false
+                },
+                {
+                    "resposta": "As oficinas de JAD consistem em reuniões estruturadas, nas quais participam tanto usuários quanto desenvolvedores.",
+                    "certa": false
+                },
+                {
+                    "resposta": "O processo é composto por 5 atividades principais, sendo estas: identificação, levantamento, detalhamento, inspeção e publicação.",
+                    "certa": false
+                }
+            ]
+        },
+        {
+            "dificuldade": 1,
+            "pergunta": "Considerando a disciplina de análise da engenharia de software só NÃO podemos afirmar que:",
+            "respostas": [
+                {
+                    "resposta": "Detalha aspectos da implementação.",
+                    "certa": true
+                },
+                {
+                    "resposta": "Verifica a qualidade dos requisitos.",
+                    "certa": false
+                },
+                {
+                    "resposta": "Modela conceitos relevantes do domínio do problema.",
+                    "certa": false
+                },
+                {
+                    "resposta": "Tornas os requisitos precisos e detalhados.",
+                    "certa": false
+                }
+            ]
+        },
+        {
+            "dificuldade": 1,
+            "pergunta": "Pode-se afirmar que com o aumento do tamanho do produto percebe-se:",
+            "respostas": [
+                {
+                    "resposta": "Uma diminuição não proporcional da produtividade.",
+                    "certa": true
+                },
+                {
+                    "resposta": "Uma diminuição diretamente proporcional da produtividade.",
+                    "certa": false
+                },
+                {
+                    "resposta": "Um aumento não proporcional da produtividade.",
+                    "certa": false
+                },
+                {
+                    "resposta": "Um aumento diretamente proporcional da produtividade.",
                     "certa": false
                 }
             ]
@@ -214,7 +544,7 @@
                     "resposta": "Esconder implementação através de interface.",
                     "certa": false
                 },
-                {  
+                {
                     "resposta": "Reservar lugar para objetos.",
                     "certa": false
                 }
@@ -236,7 +566,7 @@
                     "resposta": "Atividade relativa à qualidade de processos e produtos.",
                     "certa": false
                 },
-                {  
+                {
                     "resposta": "Atividades direta de desenvolvimento.",
                     "certa": false
                 }
@@ -258,7 +588,7 @@
                     "resposta": "Focaliza vitalidade de longo prazo da organização.",
                     "certa": false
                 },
-                {  
+                {
                     "resposta": "Não tem compromissos e preocupações de curto prazo.",
                     "certa": false
                 }
@@ -277,11 +607,99 @@
                     "certa": false
                 },
                 {
-                    "resposta": "Pressões causadas  por prazos excessivamente otimistas.",
+                    "resposta": "Pressões causadas por prazos excessivamente otimistas.",
                     "certa": false
                 },
-                {  
+                {
                     "resposta": "Planejamento insuficiente.",
+                    "certa": false
+                }
+            ]
+        },
+        {
+            "dificuldade": 1,
+            "pergunta": "O diagrama da UML 2.0 que descreve os passos a serem percorridos para a conclusão de uma atividade específica é denominado:",
+            "respostas": [
+                {
+                    "resposta": "Atividades.",
+                    "certa": true
+                },
+                {
+                    "resposta": "Sequência.",
+                    "certa": false
+                },
+                {
+                    "resposta": "Interação geral.",
+                    "certa": false
+                },
+                {
+                    "resposta": "Processos.",
+                    "certa": false
+                }
+            ]
+        },
+        {
+            "dificuldade": 1,
+            "pergunta": "Dentre as práticas do método ágil Extreme Programming (XP), está a prática de programação coletiva. É correto afirmar que, nessa prática,",
+            "respostas": [
+                {
+                    "resposta": "Os pares de desenvolvedores trabalham em todas as áreas do sistema.",
+                    "certa": true
+                },
+                {
+                    "resposta": "Cada projeto é realizado para atender às necessidades globais dos usuários.",
+                    "certa": false
+                },
+                {
+                    "resposta": "Os trabalhos são desenvolvidos em conjunto, para que um programador analise o trabalho do outro.",
+                    "certa": false
+                },
+                {
+                    "resposta": "Grandes quantidades de horas extras são consideradas aceitáveis.",
+                    "certa": false
+                }
+            ]
+        },
+        {
+            "dificuldade": 1,
+            "pergunta": "A avaliação pela representação contínua do CMMI mede a capacidade da empresa em relação aos processos. Há 4 níveis de capacidade, que são, respectivamente:",
+            "respostas": [
+                {
+                    "resposta": "0- Incompleto - 1- Realizado - 2- Gerenciado - 3- Definido.",
+                    "certa": true
+                },
+                {
+                    "resposta": "0- Inicial - 1- Gerenciado - 2- Definido - 3- Em otimização.",
+                    "certa": false
+                },
+                {
+                    "resposta": "0- Incompleto - 1- Gerenciado - 2- Definido - 3- Otimizado.",
+                    "certa": false
+                },
+                {
+                    "resposta": "0- Inicial - 1- Realizado - 2- Gerenciado - 3- Quantitativamente gerenciado.",
+                    "certa": false
+                }
+            ]
+        },
+        {
+            "dificuldade": 1,
+            "pergunta": "Na metodologia Scrum, NÃO faz parte de uma revisão do sprint (sprint review) o seguinte procedimento:",
+            "respostas": [
+                {
+                    "resposta": "Os desenvolvedores discutem quais fatores positivos e negativos ocorreram no sprint.",
+                    "certa": true
+                },
+                {
+                    "resposta": "O time de desenvolvimento responde questões sobre o incremento.",
+                    "certa": false
+                },
+                {
+                    "resposta": "O proprietário do produto identifica o que está pronto e o que ainda está por fazer.",
+                    "certa": false
+                },
+                {
+                    "resposta": "Todo o time ajuda a implementar melhorias no modo como o trabalho é efetuado.",
                     "certa": false
                 }
             ]
@@ -302,7 +720,7 @@
                     "resposta": "Recrutamento de mão de obra qualificada.",
                     "certa": false
                 },
-                {  
+                {
                     "resposta": "Investimento em tecnologia.",
                     "certa": false
                 }
@@ -324,8 +742,316 @@
                     "resposta": "Divisão grande utilizada para fins gerenciais. Demarcada por pontos de aceitação do cliente.",
                     "certa": false
                 },
-                {  
-                    "resposta": "“Receita de bolo” de como realizar uma iteração.",
+                {
+                    "resposta": "Receita de bolo de como realizar uma iteração.",
+                    "certa": false
+                }
+            ]
+        },
+        {
+            "dificuldade": 2,
+            "pergunta": "O RUP (Rational Unified Process) descreve:",
+            "respostas": [
+                {
+                    "resposta": "Papéis ou perfis de trabalho. Artefatos. Atividades executadas durante o processo de desenvolvimento. Fluxos de atividades.",
+                    "certa": true
+                },
+                {
+                    "resposta": "Papéis nos trabalhos modelados. Atividades compartilhadas. Processos de desenvolvimento e de implantação. Fluxos de atividades.",
+                    "certa": false
+                },
+                {
+                    "resposta": "Perfis previstos ou perfis resultantes. Artefatos. Atividades modificadas durante o processo de racionalização. Ambientes de atividades.",
+                    "certa": false
+                },
+                {
+                    "resposta": "Papéis presentes e futuros. Artefatos. Atividades executadas durante o processo de desenvolvimento. Fluxos de inter-relações.",
+                    "certa": false
+                }
+            ]
+        },
+        {
+            "dificuldade": 2,
+            "pergunta": "Assinale a opção que apresenta uma das finalidades da análise de requisitos:",
+            "respostas": [
+                {
+                    "resposta": "Organizar, levantar e documentar funcionalidades e restrições.",
+                    "certa": true
+                },
+                {
+                    "resposta": "Prover o ambiente adequado para a organização.",
+                    "certa": false
+                },
+                {
+                    "resposta": "Balancear objetivos em conflito entre os participantes do projeto.",
+                    "certa": false
+                },
+                {
+                    "resposta": "Prover o ambiente adequado para a organização.",
+                    "certa": false
+                }
+            ]
+        },
+        {
+            "dificuldade": 2,
+            "pergunta": "Em relação à Refatoração, é INCORRETO afirmar:",
+            "respostas": [
+                {
+                    "resposta": "A existência ou não de testes automatizados no software é irrelevante.",
+                    "certa": true
+                },
+                {
+                    "resposta": "Melhora a estrutura interna do código sem alterar seu comportamento externo.",
+                    "certa": false
+                },
+                {
+                    "resposta": "Evita a deterioração durante o ciclo de vida de um código.",
+                    "certa": false
+                },
+                {
+                    "resposta": "Incrementa melhoria no entendimento do código.",
+                    "certa": false
+                }
+            ]
+        },
+        {
+            "dificuldade": 2,
+            "pergunta": "As estratégias de gerenciamento de risco são divididas em três categorias. Uma dessas categorias é a estratégia:",
+            "respostas": [
+                {
+                    "resposta": "De minimização.",
+                    "certa": true
+                },
+                {
+                    "resposta": "De monitoramento de riscos.",
+                    "certa": false
+                },
+                {
+                    "resposta": "Da automatização.",
+                    "certa": false
+                },
+                {
+                    "resposta": "Organizacional.",
+                    "certa": false
+                }
+            ]
+        },
+        {
+            "dificuldade": 2,
+            "pergunta": "Sobre gerência de projetos, é INCORRETO afirmar que:",
+            "respostas": [
+                {
+                    "resposta": "O tempo necessário para finalizar um projeto é proporcional ao número de pessoas alocadas nele.",
+                    "certa": true
+                },
+                {
+                    "resposta": "Não existe necessariamente uma relação direta entre o valor cobrado por um sistema e o custo de seu desenvolvimento.",
+                    "certa": false
+                },
+                {
+                    "resposta": "Entre os fatores que alteram a produtividade de um software estão o ambiente de trabalho e o processo de desenvolvimento.",
+                    "certa": false
+                },
+                {
+                    "resposta": "Ao se preparar a estimativa de custo de um sistema, diversas técnicas devem ser utilizadas.",
+                    "certa": false
+                }
+            ]
+        },
+        {
+            "dificuldade": 2,
+            "pergunta": "Identifique o processo de engenharia de requisitos composto por quatro atividades de alto nível.",
+            "respostas": [
+                {
+                    "resposta": "Identificação, análise e negociação, especificação e documentação, validação.",
+                    "certa": true
+                },
+                {
+                    "resposta": "Levantamento e preparação, investigação, viabilidade, confirmação.",
+                    "certa": false
+                },
+                {
+                    "resposta": "Identificação, planejamento, atribuição, validação.",
+                    "certa": false
+                },
+                {
+                    "resposta": "Análise e negociação, validação, observação, preparação.",
+                    "certa": false
+                }
+            ]
+        },
+        {
+            "dificuldade": 2,
+            "pergunta": "A metodologia XP tem um cuidado especial com os processos de teste de software. Como é feito o processo de teste, utilizando o XP?",
+            "respostas": [
+                {
+                    "resposta": "Ao final de cada etapa, o usuário é convidado a testar o módulo pronto, evitando erros muito complexos.",
+                    "certa": true
+                },
+                {
+                    "resposta": "As etapas de teste são suprimidas do processo.",
+                    "certa": false
+                },
+                {
+                    "resposta": "O processo é efetuado, apenas por profissionais que trabalharam no desenvolvimento do produto.",
+                    "certa": false
+                },
+                {
+                    "resposta": "Todos os testes são realizados na etapa de concepção do software.",
+                    "certa": false
+                }
+            ]
+        },
+        {
+            "dificuldade": 2,
+            "pergunta": "Identifique dentre as opções abaixo o processo de engenharia de requisitos composto por quatro atividades de alto nível.",
+            "respostas": [
+                {
+                    "resposta": "Identificação, análise e negociação, especificação e documentação, validação.",
+                    "certa": true
+                },
+                {
+                    "resposta": "Análise e negociação, validação, observação, preparação.",
+                    "certa": false
+                },
+                {
+                    "resposta": "Levantamento e preparação, investigação, viabilidade, confirmação.",
+                    "certa": false
+                },
+                {
+                    "resposta": "Identificação, planejamento, atribuição, validação.",
+                    "certa": false
+                }
+            ]
+        },
+        {
+            "dificuldade": 2,
+            "pergunta": "Na etapa de planejamento de testes, inicialmente, a partir do documento de requisitos, é planejado o teste de",
+            "respostas": [
+                {
+                    "resposta": "Aceitação.",
+                    "certa": true
+                },
+                {
+                    "resposta": "Integração.",
+                    "certa": false
+                },
+                {
+                    "resposta": "Regressão.",
+                    "certa": false
+                },
+                {
+                    "resposta": "Sistema.",
+                    "certa": false
+                }
+            ]
+        },
+        {
+            "dificuldade": 2,
+            "pergunta": "Os fluxos básicos de controle de um módulo são:",
+            "respostas": [
+                {
+                    "resposta": "Seleção, repetição e sequência.",
+                    "certa": true
+                },
+                {
+                    "resposta": "Repetição, seleção e dependência.",
+                    "certa": false
+                },
+                {
+                    "resposta": "Agregação, composição e seleção.",
+                    "certa": false
+                },
+                {
+                    "resposta": "Composição, interação e repetição.",
+                    "certa": false
+                }
+            ]
+        },
+        {
+            "dificuldade": 2,
+            "pergunta": "De acordo com o IEEE, os atributos de qualidade de software referentes às características de usabilidade são ",
+            "respostas": [
+                {
+                    "resposta": "Acessibilidade, estética, atratividade, inteligibilidade e apreensibilidade.",
+                    "certa": true
+                },
+                {
+                    "resposta": "Inteligibilidade, analisabilidade, conformidade e adaptabilidade.",
+                    "certa": false
+                },
+                {
+                    "resposta": "Estabilidade, testabilidade, utilização de recursos e acessibilidade.",
+                    "certa": false
+                },
+                {
+                    "resposta": "Segurança de acesso, maturidade, atratividade e adaptabilidade.",
+                    "certa": false
+                }
+            ]
+        },
+        {
+            "dificuldade": 2,
+            "pergunta": "NÃO é um valor de domínio de informação usado na métrica ponto por função:",
+            "respostas": [
+                {
+                    "resposta": "Número de consultas internas (Internal Inquiries - IQs).",
+                    "certa": true
+                },
+                {
+                    "resposta": "Número de saídas externas (External Outputs - EOs).",
+                    "certa": false
+                },
+                {
+                    "resposta": "Número de consultas externas (External Inquiries - EQs).",
+                    "certa": false
+                },
+                {
+                    "resposta": "Número de arquivos lógicos internos (Internal Logical Files - ILFs).",
+                    "certa": false
+                }
+            ]
+        },
+        {
+            "dificuldade": 2,
+            "pergunta": "Na fase de concepção do Processo Unificado são levantados os principais requisitos e:",
+            "respostas": [
+                {
+                    "resposta": "Identificados os casos de uso de alto nível que implementam as funcionalidades requeridas pelo cliente.",
+                    "certa": true
+                },
+                {
+                    "resposta": "Um modelo definitivo será construído e refinado, permitindo o entendimento da arquitetura do sistema.",
+                    "certa": false
+                },
+                {
+                    "resposta": "A codificação do software será gerada e testada.",
+                    "certa": false
+                },
+                {
+                    "resposta": "As histórias de usuário que comporão o product backlog serão escritas e classificadas por prioridade.",
+                    "certa": false
+                }
+            ]
+        },
+        {
+            "dificuldade": 2,
+            "pergunta": "O Diagrama de Fluxo de Dados é composto de fluxos que representam a comunicação entre:",
+            "respostas": [
+                {
+                    "resposta": "Depósitos de dados, entidades externas e processos.",
+                    "certa": true
+                },
+                {
+                    "resposta": "Atividades, entidades externas e entidades de dados.",
+                    "certa": false
+                },
+                {
+                    "resposta": "Depósitos de dados, eventos e processos.",
+                    "certa": false
+                },
+                {
+                    "resposta": "Entidades externas, processos e tabelas.",
                     "certa": false
                 }
             ]
